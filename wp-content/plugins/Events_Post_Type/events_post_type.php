@@ -58,18 +58,18 @@ class gate_events_post_type {
 				'slug' => 'events/music'
 			),
 			'labels' => array(
-				'name' => 'Music Events',
-				'singular_name' => 'Music Event',
-				'edit_item' => 'Edit Music Event',
-				'update_item' => 'Update Music Event',
-				'add_new_item' => 'Add New Music Event',
-				'new_item_name' => 'New Music Event',
-				'all_items' => 'All Music Events',
-				'search_items' => 'Search Music Events',
-				'popular_items' => 'Popular Music Events',
+				'name'                       => 'Music Events',
+				'singular_name'              => 'Music Event',
+				'edit_item'                  => 'Edit Music Event',
+				'update_item'                => 'Update Music Event',
+				'add_new_item'               => 'Add New Music Event',
+				'new_item_name'              => 'New Music Event',
+				'all_items'                  => 'All Music Events',
+				'search_items'               => 'Search Music Events',
+				'popular_items'              => 'Popular Music Events',
 				'separate_items_with_commas' => 'Separate Music Events with commas',
-				'add_or_remove_items' => 'Add or Remove Music Events',
-				'choose_from_most_used' => 'Choose from most used Music Events'
+				'add_or_remove_items'        => 'Add or Remove Music Events',
+				'choose_from_most_used'      => 'Choose from most used Music Events'
 			)
 		);
 	}
