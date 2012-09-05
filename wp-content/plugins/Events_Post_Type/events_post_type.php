@@ -14,6 +14,7 @@ class gate_events_post_type {
 	public function __construct()
 	{
 		$this->register_post_type();
+		$this->taxonomies();
 	}
 
 	public function register_post_type()
@@ -51,27 +52,37 @@ class gate_events_post_type {
 	{
 		$taxonomies = array();
 
-		$taxonomies['music'] = array(
-			'hierarchial' => true,
-			'query_var' => 'music_events',
+		$taxonomies['event_type'] = array(
+			'hierarchical' => true,
+			'query_var' => 'event_type',
 			'rewrite' => array(
-				'slug' => 'events/music'
+				'slug' => 'events/event_type'
 			),
 			'labels' => array(
-				'name'                       => 'Music Events',
-				'singular_name'              => 'Music Event',
-				'edit_item'                  => 'Edit Music Event',
-				'update_item'                => 'Update Music Event',
-				'add_new_item'               => 'Add New Music Event',
-				'new_item_name'              => 'New Music Event',
-				'all_items'                  => 'All Music Events',
-				'search_items'               => 'Search Music Events',
-				'popular_items'              => 'Popular Music Events',
-				'separate_items_with_commas' => 'Separate Music Events with commas',
-				'add_or_remove_items'        => 'Add or Remove Music Events',
-				'choose_from_most_used'      => 'Choose from most used Music Events'
+				'name'                       => 'Event Types',
+				'singular_name'              => 'Event Type',
+				'edit_item'                  => 'Edit Event Type',
+				'update_item'                => 'Update Event Type',
+				'add_new_item'               => 'Add New Event Type',
+				'new_item_name'              => 'New Event Type',
+				'all_items'                  => 'All Event Types',
+				'search_items'               => 'Search Event Types',
+				'popular_items'              => 'Popular Event Types',
+				'separate_items_with_commas' => 'Separate Event Types with commas',
+				'add_or_remove_items'        => 'Add or Remove Event Types',
+				'choose_from_most_used'      => 'Choose from most used Event Types'
 			)
 		);
+
+		$this->register_all_taxonomies($taxonomies);
+	}
+
+	public function register_all_taxonomies($taxonomies)
+	{
+
+		foreach ($taxonomies as $name => $arr) {
+			register_taxonomy($name, array('gate_events'), $arr);
+		}
 	}
 }
 
