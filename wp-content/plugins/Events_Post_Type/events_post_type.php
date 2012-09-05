@@ -16,6 +16,28 @@ class gate_events_post_type {
 		$this->register_post_type();
 		$this->taxonomies();
 		$this->metaboxes();
+		add_action('admin_init', array($this, 'gate_admin_init'));
+		add_action('admin_footer', array($this, 'gate_admin_footer'));
+	}
+
+	function gate_admin_init()
+	{
+		$pluginfolder = get_bloginfo('url') . '/' . PLUGINDIR . '/' . dirname(plugin_basename(__FILE__));
+		wp_enqueue_script('jquery-ui-datepicker');
+		wp_enqueue_style('jquery.ui.theme', $pluginfolder . '/ui-lightness/jquery-ui-1.8.23.custom.css');
+	}
+
+	function gate_admin_footer()
+	{
+		?>
+			<script type="text/javascript">
+				jQuery(document).ready(function(){
+					jQuery('#gate_event_date_input').datepicker({
+						dateFormat: 'yymmdd'
+					});
+				});
+			</script>
+		<?php
 	}
 
 	public function register_post_type()
@@ -121,7 +143,7 @@ class gate_events_post_type {
 			?>
 
 				<p>
-					<input type="text" class="widefat" name="gate_event_date" id="gate_event_date" value="<?php echo esc_attr($event_date); ?>" />
+					<input type="text" class="widefat" name="gate_event_date" id="gate_event_date_input" value="<?php echo esc_attr($event_date); ?>" />
 				</p>
 
 			<?php
@@ -138,6 +160,7 @@ class gate_events_post_type {
 			}
 		});
 	}
+
 }
 
 add_action('init', function() {
