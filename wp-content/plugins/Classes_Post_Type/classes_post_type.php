@@ -56,7 +56,7 @@ class gate_classes_post_type {
 			'hierarchical' => true,
 			'query_var' => 'class_type',
 			'rewrite' => array(
-				'slug' => 'classes/class_type'
+				'slug' => 'classes/class-type'
 			),
 			'labels' => array(
 				'name'                       => 'Class Types',
@@ -71,6 +71,28 @@ class gate_classes_post_type {
 				'separate_items_with_commas' => 'Separate Class Types with commas',
 				'add_or_remove_items'        => 'Add or Remove Class Types',
 				'choose_from_most_used'      => 'Choose from most used Class Types'
+			)
+		);
+
+		$taxonomies['class_venue'] = array(
+			'hierarchical' => true,
+			'query_var' => 'class_venue',
+			'rewrite' => array(
+				'slug' => 'classes/class-venue'
+			),
+			'labels' => array(
+				'name'                       => 'Class Venues',
+				'singular_name'              => 'Class Venue',
+				'edit_item'                  => 'Edit Class Venue',
+				'update_item'                => 'Update Class Venue',
+				'add_new_item'               => 'Add New Class Venue',
+				'new_item_name'              => 'New Class Venue',
+				'all_items'                  => 'All Class Venue',
+				'search_items'               => 'Search Class Venues',
+				'popular_items'              => 'Popular Class Venues',
+				'separate_items_with_commas' => 'Separate Class Venues with commas',
+				'add_or_remove_items'        => 'Add or Remove Class Venues',
+				'choose_from_most_used'      => 'Choose from most used Class Venues'
 			)
 		);
 
